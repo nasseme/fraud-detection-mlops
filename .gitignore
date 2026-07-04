@@ -1,0 +1,29 @@
+# Environnement
+venv/
+.env
+
+# Données (gérées par DVC)
+data/raw/
+data/processed/
+
+# MLflow
+mlruns/
+
+# Logs
+logs/
+
+# Monitoring reports
+monitoring/reports/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,22 @@
+data:
+  raw_path: data/raw/creditcard.csv
+  train_path: data/processed/train.parquet
+  test_path: data/processed/test.parquet
+  prod_sim_path: data/processed/production_sim.parquet
+  time_split_train: 0.7
+  time_split_test: 0.2
+
+model:
+  n_estimators: 300
+  max_depth: 6
+  learning_rate: 0.05
+  scale_pos_weight: 577        # ratio négatifs/positifs ≈ 284315/492
+  eval_metric: aucpr
+  random_state: 42
+
+threshold:
+  optimize: true
+  metric: f1                   # critère d'optimisation du seuil
+
+monitoring:
+  drift_threshold: 0.05        # p-value Evidently en dessous de laquelle on alerte
