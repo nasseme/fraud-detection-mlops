@@ -2,9 +2,9 @@
 venv/
 .env
 
-# Données (gérées par DVC)
-data/raw/
-data/processed/
+# Données brutes (gérées par DVC)
+data/raw/*.csv
+data/processed/*.parquet
 
 # MLflow
 mlruns/
