@@ -1,0 +1,15 @@
+stages:
+  ingest:
+    cmd: python src/ingest.py
+    deps:
+      - src/ingest.py
+      - data/raw/creditcard.csv
+      - params.yaml
+    params:
+      - data.raw_path
+      - data.time_split_train
+      - data.time_split_test
+    outs:
+      - data/processed/train.parquet
+      - data/processed/test.parquet
+      - data/processed/production_sim.parquet
