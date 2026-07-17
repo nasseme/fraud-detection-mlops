@@ -13,3 +13,22 @@ stages:
       - data/processed/train.parquet
       - data/processed/test.parquet
       - data/processed/production_sim.parquet
+
+preprocess:
+    cmd: python src/preprocess.py
+    deps:
+      - src/preprocess.py
+      - data/processed/train.parquet
+      - data/processed/test.parquet
+      - data/processed/production_sim.parquet
+      - params.yaml
+    params:
+      - model.random_state
+    outs:
+      - data/processed/X_train.npy
+      - data/processed/y_train.npy
+      - data/processed/X_test.npy
+      - data/processed/y_test.npy
+      - data/processed/X_prod.npy
+      - data/processed/y_prod.npy
+      - data/processed/preprocessor.joblib
