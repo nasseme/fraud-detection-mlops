@@ -14,7 +14,7 @@ stages:
       - data/processed/test.parquet
       - data/processed/production_sim.parquet
 
-preprocess:
+  preprocess:
     cmd: python src/preprocess.py
     deps:
       - src/preprocess.py
@@ -32,3 +32,12 @@ preprocess:
       - data/processed/X_prod.npy
       - data/processed/y_prod.npy
       - data/processed/preprocessor.joblib
+
+
+validate:
+    cmd: python src/validate.py
+    deps:
+      - src/validate.py
+      - data/raw/creditcard.csv
+      - tests/great_expectations/creditcard_suite.json
+    outs: []
