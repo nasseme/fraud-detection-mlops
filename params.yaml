@@ -20,3 +20,7 @@ threshold:
 
 monitoring:
   drift_threshold: 0.05        # p-value Evidently en dessous de laquelle on alerte
+
+mlflow:
+  tracking_uri: sqlite:///mlflow.db
+  experiment_name: fraud-detection

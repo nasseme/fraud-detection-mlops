@@ -41,3 +41,26 @@ validate:
       - data/raw/creditcard.csv
       - tests/great_expectations/creditcard_suite.json
     outs: []
+
+
+train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - data/processed/X_train.npy
+      - data/processed/y_train.npy
+      - params.yaml
+    params:
+      - model.n_estimators
+      - model.max_depth
+      - model.learning_rate
+      - model.scale_pos_weight
+      - model.random_state
+
+evaluate:
+    cmd: python src/evaluate.py
+    deps:
+      - src/evaluate.py
+      - data/processed/X_test.npy
+      - data/processed/y_test.npy
+      - params.yaml
